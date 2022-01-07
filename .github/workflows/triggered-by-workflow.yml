@@ -19,7 +19,7 @@ jobs:
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
         color: "#48f442"
         username: "Mom"
-        args: "I'm proud of you, honey."
+        args: "I'm proud of you honey."
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}

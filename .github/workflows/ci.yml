@@ -1,8 +1,12 @@
 name: demo on-push
 
-on: push
+on:
+  schedule:
+    - cron: "*/5 * * * *"
 jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, world! This job was automatically triggered by a ${{ github.event_name }} event."
+    - uses: actions/checkout@v1
+    - name: Time to fail this action
+      run: exit 1
