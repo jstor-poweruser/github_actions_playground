@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: generate 0 or 1 randomly
+    - name: fail this action randomly
       run: |
         num=`shuf -i 0-1 -n 1`
         echo $num
-    - name: Time to fail this action
-      run: exit 1
+        if [$num == 1]; then
+          exit 1
+        fi
