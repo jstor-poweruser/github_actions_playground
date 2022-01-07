@@ -3,7 +3,7 @@ name: triggered by workflow
 on:
   workflow_run:
     workflows: ["demo on-push"]
-    branches: *
+    branches: [main]
     types:
       - completed
 jobs:
