@@ -2,11 +2,15 @@ name: demo on-push
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/1 * * * *"
 jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: generate 0 or 1 randomly
+      run:
+      num=`shuf -i 0-1 -n 1`
+      echo $num
     - name: Time to fail this action
       run: exit 1
