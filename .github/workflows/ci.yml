@@ -13,6 +13,8 @@ jobs:
       run: |
         num=`shuf -i 0-1 -n 1`
         echo $num
-        if [$num == 1]; then
+        if [ "$num" == 1 ]; then
           exit 1
+        else
+          echo "No failure today."
         fi
