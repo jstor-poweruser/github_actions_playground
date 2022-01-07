@@ -1,0 +1,19 @@
+name: triggered by workflow
+
+on:
+  workflow_run:
+    workflows: ["demo on-push"]
+    branches: *
+    types:
+      - completed
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo "The previous job succeeeded."
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo "The previous job failed."
